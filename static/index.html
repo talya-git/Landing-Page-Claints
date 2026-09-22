@@ -139,14 +139,59 @@ footer{border-top:1px solid var(--border);background:oklch(0.19 0.015 265 / 0.4)
 
 /* MOBILE */
 @media(max-width:768px){
+  /* Header */
   .header-inner{padding:12px 16px;}
   nav{display:none;}
   .logo-text{display:none;}
-  .stats-grid{grid-template-columns:1fr;gap:32px;}
+  .header-cta{font-size:12px;padding:8px 14px;}
+
+  /* Hero */
+  .hero h1{font-size:clamp(28px,8vw,42px);letter-spacing:-.02em;}
+  .hero-sub{font-size:14px;margin-bottom:28px;}
+  .hero-tagline{font-size:15px;}
+  .hero-btns{flex-direction:column;align-items:center;gap:12px;}
+  .btn-gold,.btn-outline{width:100%;max-width:280px;padding:14px 24px;justify-content:center;}
+
+  /* Stats */
+  .stats-bar{padding:40px 16px;}
+  .stats-grid{grid-template-columns:1fr;gap:28px;}
   .stat-item::after{display:none;}
-  .section{padding:60px 16px;}
-  .contact-grid{grid-template-columns:1fr 1fr;}
+  .stat-num{font-size:48px;}
+
+  /* Sections */
+  .section{padding:56px 16px;}
+  .section-title{font-size:clamp(22px,6vw,32px);}
+
+  /* Steps */
+  .steps-grid{grid-template-columns:1fr;gap:12px;}
+  .step{padding:24px 20px;}
+
+  /* Costs table */
+  .costs-table th:last-child,.costs-table td:last-child{display:none;}
+  .costs-table th,.costs-table td{padding:10px 12px;}
+  .costs-total{flex-direction:column;gap:8px;text-align:center;}
+  .costs-total-val{font-size:22px;}
+
+  /* Calculators */
   .calc-grid{grid-template-columns:1fr;}
+  .calc-card{padding:24px 20px;}
+  .calc-grid2{grid-template-columns:1fr 1fr;}
+
+  /* Contact */
+  .contact-grid{grid-template-columns:1fr 1fr;}
+  .contact-card{padding:20px 16px;}
+  .contact-label{font-size:15px;}
+
+  /* Footer */
+  footer{padding:36px 16px;}
+}
+
+@media(max-width:480px){
+  .hero h1{font-size:clamp(24px,7vw,34px);}
+  .contact-grid{grid-template-columns:1fr;}
+  .calc-grid2{grid-template-columns:1fr;}
+  .costs-table{font-size:12px;}
+  .costs-table th,.costs-table td{padding:8px 10px;}
 }
 </style>
 </head>
