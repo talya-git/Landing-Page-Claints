@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Buying Property in Israel — Oren Cohen Group</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --gold:oklch(0.69 0.076 78);
+  --gold-soft:oklch(0.76 0.07 80);
+  --bg:oklch(0.15 0.012 265);
+  --card:oklch(0.19 0.015 265);
+  --border:oklch(0.3 0.015 265);
+  --fg:oklch(0.96 0.008 85);
+  --muted:oklch(0.74 0.012 85);
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Assistant',sans-serif;background:var(--bg);color:var(--fg);overflow-x:hidden;}
+
+/* HEADER */
+header{position:fixed;inset-x:0;top:0;z-index:50;transition:all .5s;}
+header.scrolled{background:oklch(0.15 0.012 265 / 0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.header-inner{max-width:1280px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.logo-wrap{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.logo-wrap img{width:44px;height:44px;border-radius:50%;}
+.logo-text{display:flex;flex-direction:column;line-height:1.2;}
+.logo-text span:first-child{font-family:'Heebo',sans-serif;font-size:13px;letter-spacing:.25em;color:var(--fg);}
+.logo-text span:last-child{font-size:10px;letter-spacing:.3em;color:var(--muted);}
+nav{display:flex;gap:4px;}
+nav a{padding:8px 14px;border-radius:999px;font-size:14px;color:var(--muted);text-decoration:none;transition:all .2s;}
+nav a:hover{background:oklch(0.69 0.076 78 / 0.1);color:var(--gold);}
+.header-cta{display:inline-flex;align-items:center;gap:8px;border-radius:999px;border:1px solid oklch(0.69 0.076 78 / 0.4);background:oklch(0.69 0.076 78 / 0.05);padding:8px 20px;font-size:14px;font-weight:500;color:var(--gold);text-decoration:none;transition:all .2s;}
+.header-cta:hover{background:var(--gold);color:oklch(0.15 0.012 265);}
+
+/* HERO */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.hero-ov1{position:absolute;inset:0;background:oklch(0.15 0.012 265 / 0.35);}
+.hero-ov2{position:absolute;inset:0;background:linear-gradient(to top,oklch(0.15 0.012 265) 0%,transparent 40%,oklch(0.15 0.012 265 / 0.4) 100%);}
+.hero-ov3{position:absolute;inset:0;background:radial-gradient(120% 80% at 50% 40%,transparent 40%,oklch(0.15 0.012 265 / 0.7) 100%);}
+.hero-content{position:relative;z-index:10;max-width:900px;margin:0 auto;padding:0 20px;text-align:center;}
+.hero-logo{margin-bottom:24px;animation:fade-up .8s ease both;}
+.hero-logo img{height:160px;width:auto;filter:drop-shadow(0 2px 16px oklch(0.69 0.076 78 / 0.3));}
+.hero h1{font-family:'Heebo',sans-serif;font-size:clamp(36px,6vw,84px);font-weight:800;line-height:1.1;letter-spacing:-.04em;background-image:linear-gradient(100deg,oklch(0.64 0.07 75) 0%,oklch(0.7 0.076 78) 25%,oklch(0.77 0.074 80) 42%,oklch(0.82 0.066 82) 50%,oklch(0.77 0.074 80) 58%,oklch(0.7 0.076 78) 75%,oklch(0.64 0.07 75) 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:fade-up .9s ease .1s both,shimmer-line 5s linear infinite;filter:drop-shadow(0 2px 24px oklch(0 0 0 / 0.55));}
+.hero-sub{margin-top:28px;max-width:700px;margin-left:auto;margin-right:auto;font-size:clamp(15px,1.8vw,18px);line-height:1.8;color:oklch(0.96 0.008 85 / 0.9);animation:fade-up .9s ease .25s both;}
+.hero-sub strong{font-weight:600;}
+.hero-tagline{margin-top:16px;font-family:'Heebo',sans-serif;font-size:clamp(16px,2vw,20px);color:var(--gold-soft);animation:fade-up .9s ease .32s both;}
+.hero-btns{margin-top:40px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;animation:fade-up .9s ease .4s both;}
+.btn-gold{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;background:var(--gold);color:oklch(0.15 0.012 265);padding:16px 36px;font-size:14px;font-weight:600;letter-spacing:.05em;text-decoration:none;transition:transform .2s;}
+.btn-gold:hover{transform:scale(1.04);}
+.btn-outline{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;border:1px solid oklch(0.69 0.076 78 / 0.4);background:oklch(0.69 0.076 78 / 0.05);color:var(--gold);padding:16px 36px;font-size:14px;font-weight:500;text-decoration:none;transition:all .2s;}
+.btn-outline:hover{background:var(--gold);color:oklch(0.15 0.012 265);}
+
+/* STATS BAR */
+.stats-bar{position:relative;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:oklch(0.19 0.015 265 / 0.4);padding:56px 20px;}
+.stats-bar::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,oklch(0.69 0.076 78 / 0.6),transparent);}
+.stats-grid{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.stat-item{display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;}
+.stat-item:not(:last-child)::after{content:'';position:absolute;right:-12px;top:50%;transform:translateY(-50%);height:48px;width:1px;background:var(--border);}
+.stat-num{font-family:'Heebo',sans-serif;font-size:clamp(40px,5vw,64px);font-weight:800;letter-spacing:-.04em;background-image:linear-gradient(105deg,oklch(0.66 0.072 76) 0%,oklch(0.71 0.076 78) 30%,oklch(0.76 0.074 80) 50%,oklch(0.71 0.076 78) 70%,oklch(0.66 0.072 76) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.stat-label{margin-top:8px;font-size:14px;color:var(--muted);max-width:180px;line-height:1.4;}
+
+/* SECTIONS */
+.section{padding:80px 20px;}
+.section-inner{max-width:1100px;margin:0 auto;}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:14px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);}
+.eyebrow::before,.eyebrow::after{content:'';display:block;width:24px;height:1px;background:var(--gold);}
+.section-title{margin-top:16px;font-family:'Heebo',sans-serif;font-size:clamp(28px,4vw,48px);font-weight:700;line-height:1.15;letter-spacing:-.04em;background-image:linear-gradient(105deg,oklch(0.66 0.072 76) 0%,oklch(0.71 0.076 78) 30%,oklch(0.76 0.074 80) 50%,oklch(0.71 0.076 78) 70%,oklch(0.66 0.072 76) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.section-sub{margin-top:20px;font-size:15px;color:var(--muted);line-height:1.8;max-width:640px;}
+
+/* PROCESS STEPS */
+.steps-bg{background:oklch(0.19 0.015 265 / 0.4);}
+.steps-grid{margin-top:56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;}
+.step{background:oklch(0.15 0.012 265 / 0.6);border:1px solid var(--border);border-radius:16px;padding:32px;transition:all .45s cubic-bezier(.22,1,.36,1);}
+.step:hover{transform:translateY(-6px);border-color:oklch(0.69 0.076 78 / 0.5);box-shadow:0 20px 40px oklch(0.69 0.076 78 / 0.1);}
+.step-icon{width:48px;height:48px;border-radius:12px;background:oklch(0.69 0.076 78 / 0.1);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:20px;color:var(--gold);transition:transform .5s cubic-bezier(.22,1,.36,1);}
+.step:hover .step-icon{transform:scale(1.1);}
+.step h3{font-family:'Heebo',sans-serif;font-size:20px;font-weight:700;color:var(--fg);margin-bottom:10px;}
+.step p{font-size:13px;color:var(--muted);line-height:1.8;}
+.step-tag{display:inline-block;margin-top:16px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border:1px solid oklch(0.69 0.076 78 / 0.3);border-radius:999px;padding:4px 12px;}
+
+/* COSTS TABLE */
+.costs-bg{background:var(--bg);}
+.costs-table{width:100%;border-collapse:collapse;margin-bottom:0;}
+.costs-table th{text-align:left;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);padding:12px 16px;border-bottom:1px solid oklch(0.69 0.076 78 / 0.3);}
+.costs-table td{padding:14px 16px;font-size:14px;border-bottom:1px solid oklch(0.69 0.076 78 / 0.08);}
+.costs-table tr:hover td{background:oklch(0.69 0.076 78 / 0.04);}
+.cost-name{color:var(--fg);font-weight:500;}
+.cost-range{color:var(--gold);font-family:'Heebo',sans-serif;font-size:15px;font-weight:600;}
+.cost-note{color:var(--muted);font-size:12px;}
+.costs-total{background:oklch(0.19 0.015 265);border:1px solid oklch(0.69 0.076 78 / 0.3);border-radius:12px;padding:20px 24px;margin-top:16px;display:flex;justify-content:space-between;align-items:center;}
+.costs-total-label{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+.costs-total-val{font-family:'Heebo',sans-serif;font-size:28px;font-weight:700;color:var(--gold);}
+
+/* CALCULATORS */
+.calc-bg{background:oklch(0.19 0.015 265 / 0.4);}
+.calc-grid{margin-top:56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:24px;}
+.calc-card{background:oklch(0.15 0.012 265 / 0.6);border:1px solid var(--border);border-radius:16px;padding:36px;}
+.calc-card label{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.calc-card input,.calc-card select{width:100%;padding:12px 14px;border:1px solid oklch(0.69 0.076 78 / 0.25);background:oklch(0.19 0.015 265);color:var(--fg);font-size:15px;font-family:'Heebo',sans-serif;outline:none;border-radius:8px;margin-bottom:16px;transition:border .2s;}
+.calc-card input:focus,.calc-card select:focus{border-color:var(--gold);}
+.calc-btn{width:100%;background:var(--gold);color:oklch(0.15 0.012 265);border:none;padding:14px;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border-radius:8px;transition:opacity .2s;}
+.calc-btn:hover{opacity:.85;}
+.calc-result{display:none;margin-top:24px;border-top:1px solid oklch(0.69 0.076 78 / 0.2);padding-top:20px;}
+.calc-total-bar{background:oklch(0.19 0.015 265);border:1px solid oklch(0.69 0.076 78 / 0.3);border-radius:8px;padding:16px 18px;margin-top:12px;display:flex;justify-content:space-between;align-items:center;}
+.calc-total-label{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+.calc-total-val{font-family:'Heebo',sans-serif;font-size:26px;font-weight:700;color:var(--gold);}
+.calc-grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+.calc-mini{background:oklch(0.19 0.015 265);border-radius:8px;padding:16px;text-align:center;}
+.calc-mini-label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.calc-mini-val{font-family:'Heebo',sans-serif;font-size:26px;font-weight:700;color:var(--gold);}
+.calc-mini-val.dark{color:var(--fg);}
+
+/* CONTACT */
+.contact-bg{background:var(--bg);}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:48px;}
+.contact-card{display:flex;flex-direction:column;align-items:center;gap:12px;border-radius:16px;border:1px solid var(--border);background:oklch(0.19 0.015 265 / 0.6);padding:28px 24px;text-align:center;text-decoration:none;transition:all .45s cubic-bezier(.22,1,.36,1);}
+.contact-card:hover{transform:translateY(-6px);border-color:oklch(0.69 0.076 78 / 0.6);box-shadow:0 20px 48px oklch(0.69 0.076 78 / 0.18);}
+.contact-card:hover .contact-icon{transform:scale(1.12);box-shadow:0 8px 24px oklch(0.69 0.076 78 / 0.35);}
+.contact-icon{width:64px;height:64px;border-radius:16px;background:linear-gradient(135deg,oklch(0.69 0.076 78 / 0.25) 0%,oklch(0.76 0.07 80 / 0.1) 100%);border:1px solid oklch(0.69 0.076 78 / 0.35);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:24px;transition:transform .5s,box-shadow .5s;box-shadow:0 4px 16px oklch(0.69 0.076 78 / 0.15);}
+.contact-card:hover .contact-icon{transform:scale(1.1);}
+.contact-label{font-family:'Heebo',sans-serif;font-size:18px;font-weight:600;color:var(--fg);}
+.contact-sub{font-size:13px;color:var(--muted);}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);background:oklch(0.19 0.015 265 / 0.4);padding:48px 20px;}
+.footer-inner{max-width:600px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center;}
+.footer-inner img{width:64px;height:64px;border-radius:50%;}
+.footer-title{font-family:'Heebo',sans-serif;font-size:18px;letter-spacing:.2em;color:var(--fg);}
+.footer-sub{font-size:14px;color:var(--muted);line-height:1.6;}
+.footer-copy{font-size:12px;color:oklch(0.74 0.012 85 / 0.5);}
+
+/* ANIMATIONS */
+@keyframes fade-up{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+@keyframes shimmer-line{0%{background-position:200% center;}100%{background-position:-200% center;}}
+@keyframes count-in{from{opacity:0;transform:translateY(10px) scale(.96);}to{opacity:1;transform:translateY(0) scale(1);}}
+
+/* MOBILE */
+@media(max-width:768px){
+  .header-inner{padding:12px 16px;}
+  nav{display:none;}
+  .logo-text{display:none;}
+  .stats-grid{grid-template-columns:1fr;gap:32px;}
+  .stat-item::after{display:none;}
+  .section{padding:60px 16px;}
+  .contact-grid{grid-template-columns:1fr 1fr;}
+  .calc-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="site-header">
+  <div class="header-inner">
+    <a class="logo-wrap" href="https://www.orencohengroup.com">
+      <img src="/static/img/logo-en.png" alt="Oren Cohen Group" onerror="this.style.display='none'"/>
+      <div class="logo-text">
+        <span>OVERSEAS BUYERS</span>
+        <span>OREN COHEN GROUP</span>
+      </div>
+    </a>
+    <nav>
+      <a href="#process">The Process</a>
+      <a href="#costs">Costs</a>
+      <a href="#calculators">Calculators</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="header-cta" href="#contact">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 4.18 2 2 0 015.07 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 9.91a16 16 0 006.99 7l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      Book a Consultation
+    </a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <video autoplay muted loop playsinline poster="/static/img/jerusalem-hero.png">
+    <source src="/static/img/video1.mp4" type="video/mp4"/>
+  </video>
+  <div class="hero-ov1"></div>
+  <div class="hero-ov2"></div>
+  <div class="hero-ov3"></div>
+  <div class="hero-content">
+
+    <h1>Buying Property in Israel<br>Made Simple for Overseas Buyers</h1>
+    <p class="hero-sub">
+      A complete, transparent guide to purchasing Israeli real estate from abroad —
+      legal steps, taxes, mortgage options, and closing costs — all in one place.
+    </p>
+    <p class="hero-tagline">Your home in Jerusalem. We handle everything.</p>
+    <div class="hero-btns">
+      <a class="btn-gold" href="#process">See the Full Process</a>
+      <a class="btn-outline" href="#calculators">Use the Calculators</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<section class="stats-bar">
+  <div class="stats-grid" id="stats-grid">
+    <div class="stat-item"><div class="stat-num" data-target="30">0</div><div class="stat-label">Years of excellence in Jerusalem real estate</div></div>
+    <div class="stat-item"><div class="stat-num" data-target="2500" data-suffix="+">0</div><div class="stat-label">Satisfied clients from Israel and around the world</div></div>
+    <div class="stat-item"><div class="stat-num" data-target="30" data-suffix="+">0</div><div class="stat-label">Countries represented among our buyers</div></div>
+  </div>
+</section>
+
+<!-- PROCESS STEPS -->
+<section class="section steps-bg" id="process">
+  <div class="section-inner">
+    <div style="text-align:center;">
+      <div class="eyebrow" style="justify-content:center;display:flex;">Step by Step</div>
+      <h2 class="section-title" style="text-align:center;">How Buying Property in Israel Works</h2>
+      <p class="section-sub" style="margin:16px auto 0;">From your first inquiry to receiving the keys.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step"><div class="step-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div><h3>Property Search</h3><p>We identify properties matching your criteria. Virtual tours available for overseas clients.</p><span class="step-tag">Remote-friendly</span></div>
+      <div class="step"><div class="step-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M2 7h20M6 7l-4 9a4 4 0 008 0L6 7zM18 7l-4 9a4 4 0 008 0L18 7z"/></svg></div><h3>Lawyer &amp; Power of Attorney</h3><p>A Power of Attorney allows your lawyer to sign on your behalf. Can be notarized at the Israeli consulate in your country.</p><span class="step-tag">Required</span></div>
+      <div class="step"><div class="step-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><h3>Mortgage Pre-Approval</h3><p>Non-residents can borrow up to <strong>50% of the property value</strong>. A mortgage advisor will compare bank offers on your behalf.</p><span class="step-tag">Up to 50% LTV</span></div>
+      <div class="step"><div class="step-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div><h3>Due Diligence &amp; Contract</h3><p>Your lawyer checks title, liens, and permits. The purchase contract is signed. A deposit of 10-15% is paid at signing.</p><span class="step-tag">10-15% deposit</span></div>
+      <div class="step"><div class="step-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z"/></svg></div><h3>Purchase Tax (Mas Rechisha)</h3><p>Foreign residents pay Purchase Tax starting at 8% on the first &#8362;6.05M and 10% above. Your lawyer files and pays this tax.</p><span class="step-tag">8-10% for non-residents</span></div>
+      <div class="step"><div class="step-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 11-7.778 7.778 5.5 5.5 0 017.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg></div><h3>Closing &amp; Registration</h3><p>Balance is paid, keys are handed over, and your lawyer registers the property in the Land Registry (Tabu). Typically <strong>3-6 months</strong> total.</p><span class="step-tag">3-6 months total</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- COSTS TABLE -->
+<section class="section costs-bg" id="costs">
+  <div class="section-inner">
+    <div style="text-align:center;">
+      <div class="eyebrow" style="justify-content:center;display:flex;">Full Transparency</div>
+      <h2 class="section-title" style="text-align:center;">All Costs &amp; Closing Expenses</h2>
+      <p class="section-sub" style="margin:16px auto 40px;">No surprises. Every cost you should budget for as an overseas buyer.</p>
+    </div>
+    <div style="border:1px solid var(--border);border-radius:16px;overflow:hidden;">
+      <table class="costs-table">
+        <thead><tr><th>Cost Item</th><th>Typical Range</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td class="cost-name">Purchase Tax (Mas Rechisha)</td><td class="cost-range">8-10%</td><td class="cost-note">Of property value; non-resident rate.</td></tr>
+          <tr><td class="cost-name">Lawyer Fees</td><td class="cost-range">0.5-1.5%</td><td class="cost-note">Of purchase price + VAT.</td></tr>
+          <tr><td class="cost-name">Agent Commission</td><td class="cost-range">2% + VAT</td><td class="cost-note">Standard Israeli market rate.</td></tr>
+          <tr><td class="cost-name">Mortgage Advisor</td><td class="cost-range">&#8362;3,000-&#8362;8,000</td><td class="cost-note">One-time fee. Highly recommended.</td></tr>
+          <tr><td class="cost-name">Property Appraisal</td><td class="cost-range">&#8362;1,500-&#8362;3,000</td><td class="cost-note">Required by the bank if taking a mortgage.</td></tr>
+          <tr><td class="cost-name">Land Registry (Tabu)</td><td class="cost-range">&#8362;500-&#8362;1,500</td><td class="cost-note">Registration fees paid to the government.</td></tr>
+          <tr><td class="cost-name">Power of Attorney</td><td class="cost-range">&#8362;500-&#8362;2,000</td><td class="cost-note">Notarized at Israeli consulate + apostille.</td></tr>
+          <tr><td class="cost-name">Bank Transfer Fees</td><td class="cost-range">0.1-0.3%</td><td class="cost-note">International wire fees vary by bank.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="costs-total">
+      <span class="costs-total-label">Estimated Total Closing Costs</span>
+      <span class="costs-total-val">~11-14% of purchase price</span>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATORS -->
+<section class="section calc-bg" id="calculators">
+  <div class="section-inner">
+    <div style="text-align:center;">
+      <div class="eyebrow" style="justify-content:center;display:flex;">Interactive Tools</div>
+      <h2 class="section-title" style="text-align:center;">Calculate Your Investment</h2>
+      <p class="section-sub" style="margin:16px auto 0;">Get a preliminary estimate before speaking with an advisor.</p>
+    </div>
+    <div class="calc-grid">
+      <div class="calc-card">
+        <div style="font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Calculator 1</div>
+        <h3 style="font-family:Heebo,sans-serif;font-size:22px;font-weight:700;color:var(--fg);margin-bottom:6px;">Purchase Tax &amp; Closing Costs</h3>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:24px;line-height:1.7;">Estimate your total tax and closing costs.</p>
+        <label>Property Price (&#8362;)</label>
+        <input id="c1-price" type="number" value="3000000" min="0" step="50000"/>
+        <label>Buyer Status</label>
+        <select id="c1-status">
+          <option value="foreign">Non-Resident / Foreign Buyer</option>
+          <option value="first">Israeli Resident - First Home</option>
+          <option value="second">Israeli Resident - Additional Property</option>
+        </select>
+        <button class="calc-btn" onclick="calcCosts()">Calculate</button>
+        <div class="calc-result" id="c1-result">
+          <div id="c1-rows"></div>
+          <div class="calc-total-bar"><span class="calc-total-label">Total Estimated Costs</span><span class="calc-total-val" id="c1-total"></span></div>
+          <p style="font-size:11px;color:var(--muted);margin-top:10px;">* Indicative only. Consult a licensed attorney for exact figures.</p>
+        </div>
+      </div>
+      <div class="calc-card">
+        <div style="font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Calculator 2</div>
+        <h3 style="font-family:Heebo,sans-serif;font-size:22px;font-weight:700;color:var(--fg);margin-bottom:6px;">Mortgage Estimator</h3>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:24px;line-height:1.7;">Estimate your monthly repayment.</p>
+        <label>Loan Amount (&#8362;)</label>
+        <input id="c2-loan" type="number" value="1500000" min="0" step="50000"/>
+        <label>Annual Interest Rate (%)</label>
+        <input id="c2-rate" type="number" value="5.5" min="0.1" max="20" step="0.1"/>
+        <label>Loan Term (Years)</label>
+        <input id="c2-years" type="number" value="20" min="5" max="30" step="1"/>
+        <button class="calc-btn" onclick="calcMortgage()">Calculate</button>
+        <div class="calc-result" id="c2-result">
+          <div class="calc-grid2">
+            <div class="calc-mini"><div class="calc-mini-label">Monthly Payment</div><div class="calc-mini-val" id="c2-monthly"></div></div>
+            <div class="calc-mini"><div class="calc-mini-label">Total Interest</div><div class="calc-mini-val dark" id="c2-interest"></div></div>
+          </div>
+          <div class="calc-total-bar"><span class="calc-total-label">Total Repayment</span><span class="calc-total-val" id="c2-total"></span></div>
+          <p style="font-size:11px;color:var(--muted);margin-top:10px;">* Non-residents: max 50% LTV. Fixed-rate calculation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact-bg" id="contact">
+  <div class="section-inner">
+    <div style="text-align:center;">
+      <img src="/static/img/logo-en.png" alt="Oren Cohen Group" style="width:80px;height:80px;border-radius:50%;margin:0 auto 24px;display:block;" onerror="this.style.display='none'"/>
+      <div class="eyebrow" style="justify-content:center;display:flex;">Ready to Begin?</div>
+      <h2 class="section-title" style="text-align:center;">Talk to Our Overseas Buyers Team</h2>
+      <p class="section-sub" style="margin:16px auto 0;">We speak English, French, and Hebrew.</p>
+    </div>
+    <div class="contact-grid">
+      <a class="contact-card" href="https://wa.me/972545596052" target="_blank">
+        <div class="contact-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.82 9.82 0 001.523 5.26l-.999 3.648 3.965-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg></div>
+        <span class="contact-label">WhatsApp</span><span class="contact-sub">Fast response</span>
+      </a>
+      <a class="contact-card" href="tel:+97226634070">
+        <div class="contact-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 4.18 2 2 0 015.07 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 9.91a16 16 0 006.99 7l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+        <span class="contact-label">Call Us</span><span class="contact-sub">02-663-4070</span>
+      </a>
+      <a class="contact-card" href="mailto:office@orencohengroup.com">
+        <div class="contact-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg></div>
+        <span class="contact-label">Email</span><span class="contact-sub">office@orencohengroup.com</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <img src="/static/img/logo-en.png" alt="Oren Cohen Group" onerror="this.style.display='none'"/>
+    <p class="footer-title">OREN COHEN GROUP</p>
+    <p class="footer-sub">30 years of excellence in Jerusalem luxury real estate.<br>33 Ha'Keren Ha'Kayemet L'Israel St., Rechavia, Jerusalem</p>
+    <p class="footer-copy">&#169; 2025 Oren Cohen Group. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',function(){document.getElementById('site-header').classList.toggle('scrolled',window.scrollY>40);},{passive:true});
+function countUp(el,target,suffix,dur){var s=performance.now();function t(n){var p=Math.min((n-s)/dur,1),e=1-Math.pow(1-p,3);el.textContent=Math.round(e*target)+(suffix||'');if(p<1)requestAnimationFrame(t);}requestAnimationFrame(t);}
+var sg=document.getElementById('stats-grid');
+new IntersectionObserver(function(en){if(en[0].isIntersecting){sg.querySelectorAll('[data-target]').forEach(function(el){countUp(el,+el.dataset.target,el.dataset.suffix||'',1600);});}},{threshold:.4}).observe(sg);
+var TAX={foreign:[{up:6055070,rate:.08},{up:1/0,rate:.10}],first:[{up:1978745,rate:0},{up:2347470,rate:.035},{up:6055070,rate:.05},{up:20000000,rate:.08},{up:1/0,rate:.10}],second:[{up:6055070,rate:.08},{up:1/0,rate:.10}]};
+function calcTax(p,s){var tax=0,prev=0;for(var b of TAX[s]){if(p<=prev)break;tax+=(Math.min(p,b.up)-prev)*b.rate;prev=b.up;}return tax;}
+function fmt(n){return '\u20AA'+Math.round(n).toLocaleString('en-US');}
+function calcCosts(){
+  var price=parseFloat(document.getElementById('c1-price').value)||0;
+  var status=document.getElementById('c1-status').value;
+  if(price<=0)return;
+  var tax=calcTax(price,status);
+  var rows=[['Purchase Tax',tax],['Lawyer Fees (~1%+VAT)',price*.01],['Agent Commission (2%+VAT)',price*.02*1.18],['Mortgage Advisor',5500],['Property Appraisal',2000],['Land Registry',1000],['Power of Attorney',1000]];
+  var total=rows.reduce(function(s,r){return s+r[1];},0);
+  document.getElementById('c1-rows').innerHTML=rows.map(function(r){return '<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(180,140,60,0.15);font-size:13px;"><span style="color:var(--muted)">'+r[0]+'</span><span style="color:var(--fg);font-family:Heebo,sans-serif;font-weight:600;">'+fmt(r[1])+'</span></div>';}).join('');
+  document.getElementById('c1-total').textContent=fmt(total);
+  document.getElementById('c1-result').style.display='block';
+}
+function calcMortgage(){
+  var P=parseFloat(document.getElementById('c2-loan').value)||0;
+  var r=parseFloat(document.getElementById('c2-rate').value)/100/12;
+  var n=parseInt(document.getElementById('c2-years').value)*12;
+  if(P<=0||r<=0||n<=0)return;
+  var monthly=P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
+  var total=monthly*n;
+  document.getElementById('c2-monthly').textContent=fmt(monthly);
+  document.getElementById('c2-interest').textContent=fmt(total-P);
+  document.getElementById('c2-total').textContent=fmt(total);
+  document.getElementById('c2-result').style.display='block';
+}
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}});});
+</script>
+</body>
+</html>
