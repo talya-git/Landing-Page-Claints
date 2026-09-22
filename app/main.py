@@ -5,7 +5,7 @@ from pathlib import Path
 
 app = FastAPI()
 
-STATIC = Path(__file__).parent / "static"
+STATIC = Path(__file__).parent.parent / "static"
 app.mount("/static", StaticFiles(directory=str(STATIC)), name="static")
 
 @app.get("/")
